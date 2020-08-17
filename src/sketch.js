@@ -30,15 +30,8 @@ function draw() {
   for(let wall of walls){
     wall.show();
   }
-  // ray.show();  
   particle.update(mouseX, mouseY);
   particle.show();
   particle.cast(walls);
-  // ray.setDir(mouseX, mouseY);
-
-  // let pt=ray.cast(wall);
-  // if(pt){
-  //   fill(255);
-  //   ellipse(pt.x, pt.y, 8, 8)
-  // }
+  
 }
