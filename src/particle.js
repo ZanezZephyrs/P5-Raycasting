@@ -2,7 +2,7 @@ class Particle{
     constructor(){
         this.pos = createVector(width /2, height/2);
         this.rays=[];
-        for(let a=0;a<360;a+=10){
+        for(let a=0;a<360;a+=1){
             this.rays.push(new Ray(this.pos,radians(a)));
         }
     }
@@ -27,7 +27,7 @@ class Particle{
                 }
             }
             if(closest){
-                stroke(255);
+                stroke(255, 100);
                 line(this.pos.x,this.pos.y,closest.x,closest.y);
 
             }
@@ -37,8 +37,8 @@ class Particle{
     show(){
         fill(255);  
         ellipse(this.pos.x, this.pos.y, 4);
-        for(let i=0;i<this.rays.length;i++){
-            this.rays[i].show();
-        }
+        // for(let i=0;i<this.rays.length;i++){
+        //     this.rays[i].show();
+        // }
     }
 }
