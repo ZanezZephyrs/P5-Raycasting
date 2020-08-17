@@ -8,7 +8,7 @@ class Ray{
         stroke(255);
         push();
         translate(this.src.x, this.src.y);
-        line(0,0, this.dir.x*20, this.dir.y*20);
+        line(0,0, this.dir.x, this.dir.y);
         pop();
     }
 
