@@ -7,12 +7,23 @@ class Particle{
         }
     }
 
+    update_rays(number_of_rays){
+        this.rays=[];
+        for(let a=0;a<360;a+=360/number_of_rays){
+            this.rays.push(new Ray(this.pos,radians(a)));
+        }
+    }
+
     update(x,y){
         this.pos.x=x;
         this.pos.y=y;
     }
 
-    cast(walls){
+    cast(walls, contact_point,contact_point_size=8, color=[255]){
+        let R=parseInt(color[0])
+        let G=parseInt(color[1])
+        let B=parseInt(color[2])
+
         for(let ray of this.rays){
             let record = Infinity;
             let closest= null;
@@ -27,8 +38,11 @@ class Particle{
                 }
             }
             if(closest){
-                stroke(255, 100);
+                stroke(R,G,B);
                 line(this.pos.x,this.pos.y,closest.x,closest.y);
+                if(contact_point==true){
+                    ellipse(closest.x,closest.y,contact_point_size)
+                }
 
             }
         }
